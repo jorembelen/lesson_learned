@@ -37,6 +37,10 @@ class AdminController extends Controller
 
     public function updateUser(User $user, UserUpdateRequest $request)
     {
+        if(auth()->user()->role != 5){
+            Alert::error('Failed', 'Your are not allowed to update this data!');
+            return redirect()->back();
+        }
         if(trim($request->password) == '') {
             $data = $request->except('password');
 
