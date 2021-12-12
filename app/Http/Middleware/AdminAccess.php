@@ -16,7 +16,7 @@ class AdminAccess
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        if(auth()->user()->role == 1 || auth()->user()->role == 5) {
+        if(auth()->user()->role == 5) {
 
         return $next($request);
     }
