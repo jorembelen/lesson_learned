@@ -20,12 +20,12 @@ trait LessonLearnTraits {
 
                     // for saving original image
                 $ImageUpload = Image::make($file);
-                $originalPath = public_path('uploads/images/');
+                $originalPath = 'uploads/images/';
                 $name = $file->hashName();
                 $ImageUpload->save($originalPath .$name);
 
                 // for saving thumnail image
-                $thumbnailPath = public_path('uploads/thumbnails/');
+                $thumbnailPath = 'uploads/thumbnails/';
                 $ImageUpload->resize(300,200);
                 $ImageUpload = $ImageUpload->save($thumbnailPath .$name);
 
