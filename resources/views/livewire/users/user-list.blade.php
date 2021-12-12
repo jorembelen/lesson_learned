@@ -55,7 +55,6 @@
         </div> <!-- end col -->
     </div>
 
-    @include('users.edit-modal')
 
 </div>
 
