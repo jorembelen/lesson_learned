@@ -162,7 +162,7 @@ class LessonLearnController extends Controller
         }else{
             // Delete old image from file
             if($lesson->attachment) {
-                $docPath = public_path('uploads/documents/');
+                $docPath = 'uploads/documents/';
                 \File::delete( $docPath .$lesson->attachment);
             }
 
@@ -170,8 +170,8 @@ class LessonLearnController extends Controller
 
             if($lesson->images) {
                 foreach($photos1 as $img){
-                    $path1 = public_path('uploads/images/');
-                    $path2 = public_path('uploads/thumbnails/');
+                    $path1 = 'uploads/images/';
+                    $path2 = 'uploads/thumbnails/';
                     \File::delete($path1 .$img);
                     \File::delete($path2 .$img);
                 }
