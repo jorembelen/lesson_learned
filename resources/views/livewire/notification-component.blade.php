@@ -10,12 +10,16 @@
             aria-labelledby="page-header-notifications-dropdown">
             <div class="p-3">
                 <div class="row align-items-center">
+                    @if ($unreadNotifications > 0)
                     <div class="col">
                         <h6 class="m-0" key="t-notifications"> Notifications </h6>
                     </div>
-                    @if ($unreadNotifications > 0)
                     <div class="col-auto">
                         <a href="#!" class="small" key="t-view-all" wire:click="clear"> Clear Notifications</a>
+                    </div>
+                    @else
+                    <div class="col">
+                        <h6 class="m-0 text-center" key="t-notifications"> No Notifications </h6>
                     </div>
                     @endif
                 </div>
