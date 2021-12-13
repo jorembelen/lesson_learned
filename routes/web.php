@@ -32,6 +32,7 @@ Route::group(['middleware' => 'auth'], function() {
 
     Route::group(['middleware' => ['admin']], function() {
 
+        Route::get('lessons-report', [LessonLearnController::class, 'lessonReport'])->name('lessons.report');
         // Route::get('create-user', UserCreate::class)->name('create.user');
         Route::get('users-list', UserList::class)->name('users.list');
         Route::get('create-user', [AdminController::class, 'createUser'])->name('create.user');

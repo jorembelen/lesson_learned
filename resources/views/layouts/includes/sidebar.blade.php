@@ -18,20 +18,32 @@
                     <span key="t-users">Users</span>
                 </a>
                 <ul class="sub-menu" aria-expanded="false">
-                    <li><a href="{{ route('users.list') }}" key="t-create-user">Users List</a></li>
+                    <li><a href="{{ route('users.list') }}" key="t-create-user">List</a></li>
                 </ul>
             </li>
-          @endif
-
             <li>
                 <a href="#" class="has-arrow waves-effect">
                     <i class="bx bx-receipt"></i>
                     <span key="t-crypto">Lessons Learned</span>
                 </a>
                 <ul class="sub-menu" aria-expanded="false">
-                    <li><a href="{{ route('lessons.index') }}" key="t-lesson-learned-list">Lesson Leaned List</a></li>
+                    <li><a href="{{ route('lessons.index') }}" key="t-lesson-learned-list"> List</a></li>
+                    <li><a href="{{ route('lessons.report') }}" key="t-lesson-learned-list"> Report</a></li>
                 </ul>
             </li>
+            @else
+            <li>
+                <a href="#" class="has-arrow waves-effect">
+                    <i class="bx bx-receipt"></i>
+                    <span key="t-crypto">Lessons Learned</span>
+                </a>
+                <ul class="sub-menu" aria-expanded="false">
+                    <li><a href="{{ route('lessons.index') }}" key="t-lesson-learned-list"> List</a></li>
+                </ul>
+            </li>
+
+          @endif
+
 
             {{-- <li>
                 <a href="javascript: void(0);" class="has-arrow waves-effect">

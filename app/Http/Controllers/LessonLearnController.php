@@ -29,6 +29,13 @@ class LessonLearnController extends Controller
         return view('lessons.index', compact('lessons'));
     }
 
+    public function lessonReport()
+    {
+            $lessons = Lesson::with('location')->latest()->get();
+
+        return view('lessons.reports', compact('lessons'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
