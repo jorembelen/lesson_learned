@@ -45,28 +45,6 @@
           @endif
 
 
-            {{-- <li>
-                <a href="javascript: void(0);" class="has-arrow waves-effect">
-                    <i class="bx bx-envelope"></i>
-                    <span key="t-email">Email</span>
-                </a>
-                <ul class="sub-menu" aria-expanded="false">
-                    <li><a href="email-inbox.html" key="t-inbox">Inbox</a></li>
-                    <li><a href="email-read.html" key="t-read-email">Read Email</a></li>
-                    <li>
-                        <a href="javascript: void(0);">
-                            <span class="badge rounded-pill badge-soft-success float-end" key="t-new">New</span>
-                            <span key="t-email-templates">Templates</span>
-                        </a>
-                        <ul class="sub-menu" aria-expanded="true">
-                            <li><a href="email-template-basic.html" key="t-basic-action">Basic Action</a></li>
-                            <li><a href="email-template-alert.html" key="t-alert-email">Alert Email</a></li>
-                            <li><a href="email-template-billing.html" key="t-bill-email">Billing Email</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </li> --}}
-
             <li class="mm">
                 <a  class="waves-effect" href="{{ route('logout') }}"onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();">

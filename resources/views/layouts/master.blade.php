@@ -11,7 +11,8 @@
         <title>RCL | Lesson Learned</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- App favicon -->
-        <link rel="shortcut icon" href="/assets/images/favicon.ico">
+        {{-- <link rel="shortcut icon" href="/assets/images/favicon.ico"> --}}
+        <link rel="icon" type="image/png" href="/landingPage/assets/img/seo/favicon.png">
 
         <!-- Bootstrap Css -->
         <link href="/assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
