@@ -5,7 +5,8 @@
 <div class="row">
     <div class="col-12">
         <div class="card">
-            <div class="card-header">
+            <div class="card-body">
+
                 @if (auth()->user()->role == 0)
                 <div class="text-sm-end">
                     <a class="btn btn-dark w-30 me-2" href="{{ route('lessons.create') }}">
@@ -13,17 +14,14 @@
                     </a>
                 </div>
                 @endif
-            </div>
-            <div class="card-body">
 
-                <h4 class="card-title">Lesson Learned List</h4>
-                <br>
-
-                <table id="datatable" class="table table-bordered">
+                <h3 class="card-title">Lesson Learned List</h3>
+<br>
+                <table id="datatable" class="table table-bordered dt-responsive nowrap w-100">
                     <thead>
                         <tr>
                             <th>#</th>
-                           @if (auth()->user()->role != 0)
+                           @if (auth()->user()->role == 5)
                            <th>Site Location</th>
                            @endif
                             <th>Descipline Category</th>
@@ -38,7 +36,7 @@
                        @foreach ($lessons as $lesson)
                        <tr>
                         <td>{{ $loop->iteration }}</td>
-                        @if (auth()->user()->role != 0)
+                        @if (auth()->user()->role == 5)
                         <td>{{ $lesson->location->name }} - {{ $lesson->location->location }}</td>
                         @endif
                         <td>{{ $lesson->desc_category }}</td>
@@ -90,11 +88,10 @@
                        @endforeach
                     </tbody>
                 </table>
-
             </div>
         </div>
     </div> <!-- end col -->
-</div>
+</div> <!-- end row -->
 
 @endsection
 

@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ProjectLocationSeeder::class);
 
         User::create([
-            'name' => 'Admin',
+            'name' => 'Site Admin',
             'role' => 5,
             'email' => 'admin@gmail.com',
         ]);
