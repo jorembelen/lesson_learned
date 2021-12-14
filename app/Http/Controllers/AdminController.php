@@ -11,6 +11,8 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class AdminController extends Controller
 {
+
+
     public function createUser()
     {
         $location = ProjectLocation::latest()->get();
@@ -55,15 +57,7 @@ class AdminController extends Controller
 
         return redirect()->route('users.list');
     }
-    public function deleteUser(User $user)
-    {
-        return $user->lesson();
-        // if($user->)
-        $user->delete();
-        Alert::success('Success', $user->name .' was  successfully deleted!');
 
-        return redirect()->back();
-    }
 
 
 }

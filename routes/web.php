@@ -39,7 +39,6 @@ Route::group(['middleware' => 'auth'], function() {
         Route::get('edit-user/{user}', [AdminController::class, 'editUser'])->name('user.edit');
         Route::put('update-user/{user}', [AdminController::class, 'updateUser'])->name('user.update');
         Route::post('add-user', [AdminController::class, 'addUser'])->name('user.add');
-        Route::post('delete-users/{user}', [AdminController::class, 'deleteUser'])->name('user.delete');
 
     });
 

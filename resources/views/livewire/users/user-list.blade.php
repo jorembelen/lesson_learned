@@ -1,7 +1,7 @@
 <div>
 
- <!-- Page Header -->
- <div class="page-header">
+<!-- Page Header -->
+<div class="page-header">
     <div>
         <h2 class="main-content-title tx-24 mg-b-5">Users List</h2>
         <ol class="breadcrumb">
@@ -25,10 +25,11 @@
         <div class="card custom-card">
             <div class="card-body">
 
-                    <h4 class="card-title">Users List</h4>
-                    <br>
+        <div class="table-responsive">
 
-                    <table id="datatable" class="table table-bordered">
+            <div class="row">
+                <div class="col-sm-12">
+                    <table class="table dataTable no-footer"  id="example1">
                         <thead>
                             <tr>
                                 <th>#</th>
@@ -59,14 +60,21 @@
                             </td>
                         </tr>
 
+
                            @endforeach
                         </tbody>
                     </table>
-
                 </div>
             </div>
-        </div> <!-- end col -->
+        </div>
     </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Row -->
 
 
 </div>
