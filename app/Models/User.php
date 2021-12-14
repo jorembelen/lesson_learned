@@ -78,7 +78,7 @@ class User extends Authenticatable
            $greetings = "Good Morning";
         }
 
-        return $greetings .'! ' .$this->name;
+        return $greetings .' ' .$this->name;
     }
 
     public function userRole()

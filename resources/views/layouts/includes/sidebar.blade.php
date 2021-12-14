@@ -1,65 +1,45 @@
+<div class="main-sidebar main-sidebar-sticky side-menu">
+        <div class="sidemenu-logo">
+            <a class="main-logo" href="/">
+                <img src="/assets/img/logo.png" class="header-brand-img desktop-logo" height="60" width="75" alt="logo">
+                <img src="/assets/img/logo.png" class="header-brand-img icon-logo" alt="logo">
+            </a>
+        </div>
+        <div class="main-sidebar-body">
+            <ul class="nav">
+                <li class="nav-header"><span class="nav-label">Dashboard</span></li>
 
-    <div id="sidebar-menu">
-        <!-- Left Menu Start -->
-        <ul class="metismenu list-unstyled" id="side-menu">
-            <li class="menu-title" key="t-menu">Menu</li>
-
-            <li>
-                <a href="{{ route('home') }}" class="waves-effect">
-                    <i class="bx bx-home-circle"></i>
-                    <span key="t-dashboards">Dashboard</span>
-                </a>
-            </li>
-
-          @if (in_array(auth()->user()->role, [5]))
-            <li>
-                <a href="#" class="has-arrow waves-effect">
-                    <i class="bx bx-user-circle"></i>
-                    <span key="t-users">Users</span>
-                </a>
-                <ul class="sub-menu" aria-expanded="false">
-                    <li><a href="{{ route('users.list') }}" key="t-create-user">List</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#" class="has-arrow waves-effect">
-                    <i class="bx bx-receipt"></i>
-                    <span key="t-crypto">Lessons Learned</span>
-                </a>
-                <ul class="sub-menu" aria-expanded="false">
-                    <li><a href="{{ route('lessons.index') }}" key="t-lesson-learned-list"> List</a></li>
-                    <li><a href="{{ route('lessons.report') }}" key="t-lesson-learned-list"> Report</a></li>
-                </ul>
-            </li>
-            @else
-            <li>
-                <a href="#" class="has-arrow waves-effect">
-                    <i class="bx bx-receipt"></i>
-                    <span key="t-crypto">Lessons Learned</span>
-                </a>
-                <ul class="sub-menu" aria-expanded="false">
-                    <li><a href="{{ route('lessons.index') }}" key="t-lesson-learned-list"> List</a></li>
-                </ul>
-            </li>
-
-          @endif
-
-
-            <li class="mm">
-                <a  class="waves-effect" href="{{ route('logout') }}"onclick="event.preventDefault();
-                document.getElementById('logout-form').submit();">
-                    <i class="bx bx-power-off"></i>
-                    <span key="t-chat">Logout</span>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                    </form>
-                </a>
-            </li>
-
-
-
-        </ul>
+                <li class="nav-item">
+                    <a class="nav-link" href="/"><span class="shape1"></span><span class="shape2"></span><i class="ti-home sidemenu-icon"></i><span class="sidemenu-label">Home</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link with-sub" href="#"><span class="shape1"></span><span class="shape2"></span><i class="ti-user sidemenu-icon"></i><span class="sidemenu-label">Users</span><i class="angle fe fe-chevron-right"></i></a>
+                    <ul class="nav-sub">
+                        <li class="nav-sub-item">
+                            <a class="nav-sub-link" href="{{ route('users.list') }}">List</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link with-sub" href="#"><span class="shape1"></span><span class="shape2"></span><i class="ti-write sidemenu-icon"></i><span class="sidemenu-label">Lessons Learned</span><i class="angle fe fe-chevron-right"></i></a>
+                    <ul class="nav-sub">
+                        <li class="nav-sub-item">
+                            <a class="nav-sub-link" href="{{ route('lessons.index') }}">List</a>
+                        </li>
+                        <li class="nav-sub-item">
+                            <a class="nav-sub-link" href="{{ route('lessons.report') }}">Report</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        <span class="shape1"></span><span class="shape2"></span>
+                        <i class="fe fe-log-out sidemenu-icon"></i>
+                        <span class="sidemenu-label">Logout</span></a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                </li>
+            </ul>
+        </div>
     </div>
-
-
-

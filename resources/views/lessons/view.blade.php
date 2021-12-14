@@ -2,33 +2,45 @@
 
 @section('content')
 
+ <!-- Page Header -->
+ <div class="page-header">
+    <div>
+        <h2 class="main-content-title tx-24 mg-b-5">Lesson Learned Details</h2>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ route('home') }}">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('lessons.index') }}">Lesson Learned List</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Lesson Learned Details</li>
+        </ol>
+    </div>
+    <div class="d-flex">
+        <div class="justify-content-center">
+            @if (auth()->user()->role == 1)
+            @if ($lesson->status == 2)
+                    <button class="btn btn-success w-30 me-2 disabled">
+                        <i class="mdi mdi-approval"></i> Approval
+                    </button>
+                @else
+                    <a class="btn btn-success w-30 me-2" href="#" data-toggle="modal" data-target="#approve">
+                        <i class="mdi mdi-approval"></i> Approval
+                    </a>
+                @endif
+           @endif
+        </div>
+    </div>
+</div>
+<!-- End Page Header -->
+
+<!-- Row -->
 <div class="row">
-    <div class="col-md-12">
-        <div class="card">
-            <div class="card-header">
-                <h3>Lesson Learned Details</h3>
-                <div class="text-sm-end">
-                   @if (auth()->user()->role == 1)
-                    @if ($lesson->status == 2)
-                            <button class="btn btn-dark w-30 me-2 disabled">
-                                <i class="mdi mdi-account-box-multiple-outline"></i> Approval
-                            </button>
-                        @else
-                            <a class="btn btn-dark w-30 me-2" href="#" data-bs-toggle="modal" data-bs-target="#approve">
-                                <i class="mdi mdi-account-box-multiple-outline"></i> Approval
-                            </a>
-                        @endif
-                   @endif
-                </div>
-            </div>
+    <div class="col-lg-12">
+        <div class="card custom-card">
             <div class="card-body">
-                <div class="table-responsive">
                     <table class="table mb-0 table-bordered">
                         <tbody>
-                            {{-- <tr>
+                            <tr>
                                 <th scope="row" style="width: 400px;">Site Location</th>
                                 <td>{{ $lesson->location->name }} - {{ $lesson->location->location }}</td>
-                            </tr> --}}
+                            </tr>
                             <tr>
                                 <th scope="row" style="width: 400px;">Descipline Category</th>
                                 <td>{{ $lesson->desc_category }}</td>
@@ -73,9 +85,9 @@
                                 <th scope="row" style="width: 400px;">Status</th>
                                 <td>
                                     @if ($lesson->status == 0)
-                                    <span class="badge badge-pill badge-soft-danger font-size-12">{{ $lesson->lessonStatus() }}</span>
+                                    <span class="status bg-danger"></span> {{ $lesson->lessonStatus() }}
                                     @else
-                                    <span class="badge badge-pill badge-soft-success font-size-12">{{ $lesson->lessonStatus() }}</span>
+                                    <span class="status bg-success"></span> {{ $lesson->lessonStatus() }}
                                     @endif
                                 </td>
                             </tr>
@@ -119,55 +131,53 @@
                 <a href="{{ route('lessons.index') }}" class="btn btn-primary waves-effect btn-label waves-light float-right"><i class="mdi mdi-arrow-left label-icon"></i> Back</a>
             </div>
         </div>
-    </div>
 {{-- End --}}
 
-                </div>
+
             </div>
         </div>
     </div>
 </div>
+<!-- End Row -->
 
 @endsection
 
 
-  <!-- Update Modal -->
-  <div class="modal fade" id="approve" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Approval Status</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form class="form-horizontal" method="POST" action="{{ route('lesson.approve', $lesson) }}">
-                    @csrf
-                    @method('PUT')
-                    <div class="row mb-4">
-                        <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">Status</label>
-                        <div class="col-sm-9">
-                            <select name="status" class="form-select" required>
-                                <option value="">Select Status</option>
-                                <option value="1">Revision Required</option>
-                                <option value="2">Approved</option>
-                            </select>
-                            @error('role') <span class="text-danger">{{ $message }}</span> @enderror
+			<!-- Approval modal -->
+			<div class="modal" id="approve">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content modal-content-demo">
+						<div class="modal-header">
+							<h6 class="modal-title">Approval Status</h6><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
+						</div>
+						<div class="modal-body">
+                            <form class="form-horizontal" method="POST" action="{{ route('lesson.approve', $lesson) }}">
+                                @csrf
+                                @method('PUT')
+                                <div class="row mb-4">
+                                    <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">Status</label>
+                                    <div class="col-sm-9">
+                                        <select name="status" class="form-control" required>
+                                            <option value="">Select Status</option>
+                                            <option value="1">Revision Required</option>
+                                            <option value="2">Approved</option>
+                                        </select>
+                                        @error('role') <span class="text-danger">{{ $message }}</span> @enderror
+                                    </div>
+                                </div>
+                                <div class="row mb-4">
+                                    <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">Comments</label>
+                                    <div class="col-sm-9">
+                                        <textarea name="comments" class="form-control" placeholder="write your comments"></textarea>
+                                        @error('role') <span class="text-danger">{{ $message }}</span> @enderror
+                                    </div>
+                                </div>
                         </div>
-                    </div>
-                    <div class="row mb-4">
-                        <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">Comments</label>
-                        <div class="col-sm-9">
-                            <textarea name="comments" class="form-control" placeholder="write your comments"></textarea>
-                            @error('role') <span class="text-danger">{{ $message }}</span> @enderror
-                        </div>
-                    </div>
-
-            </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-primary">Submit</button>
-                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
-            </div>
-        </form>
-        </div>
-    </div>
-</div>
+						<div class="modal-footer">
+							<button class="btn ripple btn-primary" type="submit">Submit</button>
+							<button class="btn ripple btn-secondary" data-dismiss="modal" type="button">Cancel</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- End Select2 modal -->

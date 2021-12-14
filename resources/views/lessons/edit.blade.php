@@ -2,13 +2,24 @@
 
 @section('content')
 
-<div class="row">
+<!-- Page Header -->
+<div class="page-header">
+    <div>
+        <h2 class="main-content-title tx-24 mg-b-5">Update Lesson Learned</h2>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ route('home') }}">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('lessons.index') }}">Lesson Learned List</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Update Lesson Learned</li>
+        </ol>
+    </div>
 
-    <div class="col-xl-12">
-        <div class="card">
-            <div class="card-header">
-                <h4>Create Lesson Learned</h4>
-            </div>
+</div>
+<!-- End Page Header -->
+
+<!-- Row -->
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card custom-card">
             <div class="card-body">
 
                 <form class="form-horizontal form-disabled-button"  method="POST" action="{{ route('lessons.update', $lesson) }}" id="lesson-create" enctype="multipart/form-data">
@@ -19,7 +30,7 @@
                     <div class="row mb-4">
                         <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">Descipline Category</label>
                         <div class="col-sm-4">
-                            <select name="desc_category" class="form-select">
+                            <select name="desc_category" class="form-control">
                                 <option value="{{ $lesson->desc_category }}">{{ $lesson->desc_category }}</option>
                                 <option value="Civil">Civil</option>
                                 <option value="Electrical">Electrical</option>
@@ -41,7 +52,7 @@
                     <div class="row mb-4">
                         <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">Lesson Category</label>
                         <div class="col-sm-4">
-                            <select name="lesson_category" class="form-select" id="category">
+                            <select name="lesson_category" class="form-control" id="category">
                                 <option value="{{ $lesson->lesson_category }}">{{ $lesson->lesson_category }}</option>
                                 <option value="Positive">Positive</option>
                                 <option value="Negative">Negative</option>
@@ -81,7 +92,7 @@
                     <div class="row mb-4">
                         <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">Assign To</label>
                         <div class="col-sm-4">
-                            <select name="owner" class="form-select select2">
+                            <select name="owner" class="form-control basic">
                                 <option value="{{ $lesson->owner }}">{{ $lesson->owner }}</option>
                                 <option value="Architect">Architect</option>
                                 <option value="CAD Operator">CAD Operator</option>
@@ -107,7 +118,6 @@
                                 <option value="Stone Column Works Supervisor">Stone Column Works Supervisor</option>
                                 <option value="Store Keeper">Store Keeper</option>
                                 <option value="Superintendent">Superintendent</option>
-                                <option value="Superintendent">Superintendent</option>
                                 <option value="Technician">Technician</option>
                             </select>
                             @error('owner') <span class="text-danger">{{ $message }}</span> @enderror
@@ -123,7 +133,7 @@
                    <div class="row mb-2 riskLevel" style="{{ $lesson->lesson_category == 'negative' ? '' : 'display:none;' }}">
                     <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">Risk Level</label>
                     <div class="col-md-4" >
-                        <select name="risk_level" class="form-select">
+                        <select name="risk_level" class="form-control">
                             <option value="{{ $lesson->risk_level }}">{{ $lesson->risk_level }}</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -136,25 +146,26 @@
                 </div>
 
 
-                    <div class="row justify-content-end mt-4 text-sm-end">
-                        <div class="col-sm-9">
-
-                            <div>
-                                <a href="{{ route('lessons.index') }}" class="btn btn-dark waves-effect btn-label waves-light disabled-button-prevent"><i class="mdi mdi-arrow-left label-icon"></i> Cancel</a>
-                                <button  class="btn btn-primary w-md disabled-button-prevent" type="submit">Submit</button>
-                                <button type="button" class="btn btn-success waves-effect spinner-prevent">
-                                    <i class="bx bx-hourglass bx-spin font-size-16 align-middle me-2"></i> Saving
-                                </button>
-                            </div>
+                <div class="float-right">
+                    <div>
+                        <a href="{{ route('lessons.index') }}" class="btn btn-dark waves-effect btn-label waves-light disabled-button-prevent"><i class="mdi mdi-arrow-left label-icon"></i> Cancel</a>
+                        <button  class="btn btn-primary w-md disabled-button-prevent" type="submit">Submit</button>
+                        <div class="spinner-prevent">
+                            <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
                         </div>
                     </div>
-                </form>
-            </div>
-            <!-- end card body -->
+                </div>
+        </form>
+
         </div>
-        <!-- end card -->
     </div>
-  </div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+<!-- End Row -->
 
   <script src="/assets/plugins/file-upload/file-upload-with-preview.min.js"></script>
 

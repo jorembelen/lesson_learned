@@ -1,187 +1,206 @@
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
 
-        <meta charset="utf-8" />
+		<meta charset="utf-8">
+		<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
 
-        <!-- CSRF Token -->
-        <meta name="csrf-token" content="{{ csrf_token() }}">
-        <title>RCL | Lesson Learned</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- App favicon -->
-        {{-- <link rel="shortcut icon" href="/assets/images/favicon.ico"> --}}
-        <link rel="icon" type="image/png" href="/landingPage/assets/img/seo/favicon.png">
+        <!-- Favicon -->
+		<link rel="icon" href="{{ asset('/assets/img/brand/favicon.ico') }}" type="image/x-icon"/>
 
-        <!-- Bootstrap Css -->
-        <link href="/assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
-        <!-- Icons Css -->
-        <link href="/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
-        <!-- DataTables -->
-        <link href="/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
-        <link href="/assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
-        <!-- Responsive datatable examples -->
-        <link href="/assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <title>RCL | Lesson Learned</title>
 
+		<!-- Bootstrap css-->
+		<link href="{{ asset('/assets/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet"/>
 
-        <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
-        {{-- <link href="/assets/css/scrollspyNav.css" rel="stylesheet" type="text/css" />
-        <link href="/assets/plugins/apex/apexcharts.css" rel="stylesheet" type="text/css"> --}}
-        <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
+		<!-- Icons css-->
+		<link href="{{ asset('/assets/plugins/web-fonts/icons.css') }}" rel="stylesheet"/>
+		<link href="{{ asset('/assets/plugins/web-fonts/font-awesome/font-awesome.min.css') }}" rel="stylesheet">
+		<link href="{{ asset('/assets/plugins/web-fonts/plugin.css') }}" rel="stylesheet"/>
 
         <!-- For Image upload -->
         <link href="/assets/plugins/file-upload/file-upload-with-preview.min.css" rel="stylesheet" type="text/css" />
         <!-- Lightbox css -->
         <link href="/assets/libs/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css" />
-        <!-- Select2 css-->
-        <link href="/assets/libs/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
 
-        <!-- App Css-->
-        <link href="/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
-        <link href="/assets/css/prevent.css" rel="stylesheet">
+		<!-- Style css-->
+		<link href="{{ asset('/assets/css/style/style.css') }}" rel="stylesheet">
+		<link href="{{ asset('/assets/css/skins.css') }}" rel="stylesheet">
+		<link href="{{ asset('/assets/css/dark-style.css') }}" rel="stylesheet">
+		<link href="{{ asset('/assets/css/colors/default.css') }}" rel="stylesheet">
+        <link href="{{ asset('/assets/plugins/datatable/dataTables.bootstrap4.min.css') }}" rel="stylesheet" />
+		<link href="{{ asset('/assets/css/prevent.css') }}" rel="stylesheet">
 
-        <livewire:styles />
+		<!-- Color css-->
+		<link id="theme" rel="stylesheet" type="text/css" media="all" href="{{ asset('/assets/css/colors/color.css') }}">
+
+		<!-- Select2 css-->
+        <link href="{{ asset('/assets/plugins/select2/select2.min.css') }}" rel="stylesheet">
+
+
+             	<!-- InternalFileupload css-->
+		<link href="{{ asset('/assets/plugins/fileuploads/css/fileupload.css') }}" rel="stylesheet" type="text/css"/>
+
+		<!-- InternalFancy uploader css-->
+		<link href="{{ asset('/assets/plugins/fancyuploder/fancy_fileupload.css') }}" rel="stylesheet" />
+
+		<!-- Sidemenu css-->
+		<link href="{{ asset('/assets/css/sidemenu/sidemenu.css') }}" rel="stylesheet">
+
+		<!-- Switcher css-->
+		<link href="{{ asset('/assets/switcher/css/switcher.css') }}" rel="stylesheet">
+		<link href="{{ asset('/assets/switcher/demo.css') }}" rel="stylesheet">
 
         <style>
-
+            pre {
+              margin: 20px 0;
+              padding: 20px;
+              background: #fafafa;
+            }
+            .round { border-radius: 60%; }
             @media all and (min-width: 480px) {
                 .deskContent {display:block;}
                 .phoneContent {display:none;}
             }
-
             @media all and (max-width: 479px) {
                 .deskContent {display:none;}
                 .phoneContent {display:block;}
             }
-            .text-justify {
-                text-align: justify;
-            }
-         </style>
+        </style>
 
-    </head>
+        @livewireStyles
+	</head>
 
-    <body data-sidebar="dark">
-
-    <!-- <body data-layout="horizontal" data-topbar="dark"> -->
-
-        <!-- Begin page -->
-        <div id="layout-wrapper">
+	<body class="main-body leftmenu">
 
 
-            <header id="page-topbar">
+
+		<!-- Loader -->
+		<div id="global-loader">
+			<img src="{{ asset('/assets/img/loader.svg') }}" class="loader-img" alt="Loader">
+		</div>
+        <!-- End Loader -->
+
+		<!-- Page -->
+		<div class="page">
+
+        <!-- Sidemenu -->
+                @include('layouts.includes.sidebar')
+                <!-- End Sidemenu -->        <!-- Main Header-->
                 @include('layouts.includes.header')
-            </header>
 
-            <!-- ========== Left Sidebar Start ========== -->
-            <div class="vertical-menu">
+			<!-- End Main Header-->		<!-- Mobile-header -->
+            @include('layouts.includes.mobile-nav')
+			<!-- Mobile-header closed -->
+			<!-- Main Content-->
+			<div class="main-content side-content pt-0">
+				<div class="container-fluid">
+					<div class="inner-body">
 
-                <div data-simplebar class="h-100">
 
-                    <!--- Sidemenu -->
-                        @include('layouts.includes.sidebar')
+                        @yield('content')
+                        @include('sweetalert::alert')
                         @include('layouts.includes.sweet-alert')
-                    <!-- Sidebar -->
-                </div>
-            </div>
-            <!-- Left Sidebar End -->
 
 
 
-            <!-- ============================================================== -->
-            <!-- Start right Content here -->
-            <!-- ============================================================== -->
-            <div class="main-content">
+					</div>
+				</div>
+			</div>
+			<!-- End Main Content-->
 
-                <div class="page-content">
-                    <div class="container-fluid">
-
-                        <!-- start page title -->
-                            @yield('content')
-                            @include('sweetalert::alert')
-
-                        <!-- end page title -->
-
-                    </div> <!-- container-fluid -->
-                </div>
-                <!-- End Page-content -->
-
-
-                <footer class="footer">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <script>document.write(new Date().getFullYear())</script> © RCLCD-IT.
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="text-sm-end d-none d-sm-block">
-                                    Design & Develop by <a href="https://joreb.net" target="_blank" rel="noopener noreferrer">Jorem Belen</a>
-                                </div>
-                            </div>
-                        </div>
+		<!-- Main Footer-->
+        <div class="main-footer text-center d-print-none">
+            <div class="container">
+                <div class="row row-sm">
+                    <div class="col-md-12">
+                        <span>Copyright © 2021 | Coded by <a href="https://joreb.net/">Jorem Belen</a> All rights reserved.</span>
                     </div>
-                </footer>
+                </div>
             </div>
-            <!-- end main content-->
-
         </div>
-        <!-- END layout-wrapper -->
+			<!--End Footer-->				<!-- Sidebar -->
+
+			<!-- End Sidebar -->
+		</div>
+        <!-- End Page -->
+
+        <!-- Back-to-top -->
+		<a href="#top" id="back-to-top"><i class="fe fe-arrow-up d-print-none"></i></a>
 
 
-        <!-- Right bar overlay-->
-        <div class="rightbar-overlay"></div>
 
-        <!-- JAVASCRIPT -->
-        <script src="/assets/libs/jquery/jquery.min.js"></script>
-        <script src="/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="/assets/libs/metismenu/metisMenu.min.js"></script>
-        <script src="/assets/libs/simplebar/simplebar.min.js"></script>
-        <script src="/assets/libs/node-waves/waves.min.js"></script>
+		<!-- Jquery js-->
+		<script src="{{ asset('/assets/plugins/jquery/jquery.min.js') }}"></script>
 
-        <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
-        {{-- <script src="/assets/js/scrollspyNav.js"></script>
-        <script src="/assets/plugins/apex/apexcharts.min.js"></script>
-        <script src="/assets/plugins/apex/custom-apexcharts.js"></script> --}}
-        <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
+		<!-- Bootstrap js-->
+		<script src="{{ asset('/assets/plugins/bootstrap/js/popper.min.js') }}"></script>
+        <script src="{{ asset('/assets/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
 
-        <!-- Select2 js-->
-        <script src="/assets/libs/select2/js/select2.min.js"></script>
+		<!-- Select2 js-->
+		<script src="{{ asset('/assets/plugins/select2/select2.min.js') }}"></script>
 
-          <!-- Magnific Popup-->
-          <script src="/assets/libs/magnific-popup/jquery.magnific-popup.min.js"></script>
+		<!-- Perfect-scrollbar js -->
+		<script src="{{ asset('/assets/plugins/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
+
+		<!-- Sidemenu js -->
+		<script src="{{ asset('/assets/plugins/sidemenu/sidemenu.js') }}"></script>
+
+		<!-- Sidebar js -->
+		<script src="{{ asset('/assets/plugins/sidebar/sidebar.js') }}"></script>
+
+        	<!-- Internal Fileuploads js-->
+		<script src="{{ asset('/assets/plugins/fileuploads/js/fileupload.js') }}"></script>
+        <script src="{{ asset('/assets/plugins/fileuploads/js/file-upload.js') }}"></script>
+
+		<!-- Internal Data Table js -->
+        <script src="{{ asset('/assets/plugins/datatable/jquery.dataTables.min.js') }}"></script>
+        <script src="{{ asset('/assets/plugins/datatable/dataTables.bootstrap4.min.js') }}"></script>
+        <script src="{{ asset('/assets/plugins/datatable/dataTables.responsive.min.js') }}"></script>
+        <script src="{{ asset('/assets/plugins/datatable/fileexport/dataTables.buttons.min.js') }}"></script>
+        <script src="{{ asset('/assets/plugins/datatable/fileexport/buttons.bootstrap4.min.js') }}"></script>
+        <script src="{{ asset('/assets/plugins/datatable/fileexport/jszip.min.js') }}"></script>
+        <script src="{{ asset('/assets/plugins/datatable/fileexport/pdfmake.min.js') }}"></script>
+        <script src="{{ asset('/assets/plugins/datatable/fileexport/vfs_fonts.js') }}"></script>
+        <script src="{{ asset('/assets/plugins/datatable/fileexport/buttons.html5.min.js') }}"></script>
+        <script src="{{ asset('/assets/plugins/datatable/fileexport/buttons.print.min.js') }}"></script>
+        <script src="{{ asset('/assets/plugins/datatable/fileexport/buttons.colVis.min.js') }}"></script>
+        <script src="{{ asset('/assets/js/table-data.js') }}"></script>
+
+        <!-- Magnific Popup-->
+        <script src="/assets/libs/magnific-popup/jquery.magnific-popup.min.js"></script>
         <!-- lightbox init js-->
         <script src="/assets/js/pages/lightbox.init.js"></script>
 
-        <!-- Required datatable js -->
-        <script src="/assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
-        <script src="/assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
-        <!-- Buttons examples -->
-        <script src="/assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-        <script src="/assets/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
-        <script src="/assets/libs/jszip/jszip.min.js"></script>
-        <script src="/assets/libs/pdfmake/build/pdfmake.min.js"></script>
-        <script src="/assets/libs/pdfmake/build/vfs_fonts.js"></script>
-        <script src="/assets/libs/datatables.net-buttons/js/buttons.html5.min.js"></script>
-        <script src="/assets/libs/datatables.net-buttons/js/buttons.print.min.js"></script>
-        <script src="/assets/libs/datatables.net-buttons/js/buttons.colVis.min.js"></script>
-        <script src="/assets/js/prevent.js"></script>
+		<!-- Sticky js -->
+		<script src="{{ asset('/assets/js/sticky.js') }}"></script>
 
-        <!-- Responsive examples -->
-        <script src="/assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-        <script src="/assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
-        <!-- Datatable init js -->
-        <script src="/assets/js/pages/datatables.init.js"></script>
+		<!-- Custom js -->
+		<script src="{{ asset('/assets/js/custom.js') }}"></script>
+		<script src="{{ asset('/assets/js/prevent.js') }}"></script>
 
+		<!-- Switcher js -->
+		<script src="{{ asset('/assets/switcher/js/switcher.js') }}"></script>
 
+        <script src="{{ asset('/assets/plugins/counters/jquery.missofis-countdown.js') }}"></script>
+        <script src="{{ asset('/assets/plugins/counters/counterup.min.js') }}"></script>
+        <script src="{{ asset('/assets/plugins/counters/waypoints.min.js') }}"></script>
+        <script src="{{ asset('/assets/plugins/counters/counter.js') }}"></script>
 
-        <script src="/assets/js/app.js"></script>
-
-        <!-- Laravel Javascript Validation -->
-        <script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js')}}"></script>
+        <script type="text/javascript" src="{{ asset('/vendor/jsvalidation/js/jsvalidation.js')}}"></script>
         {!! JsValidator::formRequest('App\Http\Requests\LessonStoreRequest', '#lesson-create'); !!}
         {!! JsValidator::formRequest('App\Http\Requests\UserStoreRequest', '#create-user'); !!}
         {!! JsValidator::formRequest('App\Http\Requests\UserUpdateRequest', '#update-user'); !!}
+
+        <script>
+            $(document).ready(function() {
+            $('.basic').select2();
+        });
+        </script>
 
         <script>
             $('#category').on('change', function() {
@@ -190,24 +209,10 @@
                 } else {
                     $('.riskLevel').show();
                 }
-         });
-        </script>
-
-        {{-- <script>
-            var ss = $(".basic").select2({
-        });
-        </script> --}}
-
-        <script>
-            $(document).ready(function() {
-            $('.basic').select2();
         });
         </script>
 
-
-        @yield('script')
-
-        <livewire:scripts />
-    </body>
+        @livewireScripts
+	</body>
 
 </html>

@@ -1,16 +1,29 @@
 <div>
 
-    <div class="row">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-header">
-                    <div class="text-sm-end">
-                        <a class="btn btn-dark w-30 me-2" href="{{ route('create.user') }}">
-                            <i class="mdi mdi-plus me-1"></i> Add New
-                        </a>
-                    </div>
-                </div>
-                <div class="card-body">
+ <!-- Page Header -->
+ <div class="page-header">
+    <div>
+        <h2 class="main-content-title tx-24 mg-b-5">Users List</h2>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ route('home') }}">Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Users List</li>
+        </ol>
+    </div>
+    <div class="d-flex">
+        <div class="justify-content-center">
+            <a href="{{ route('create.user') }}" class="btn btn-primary my-2 btn-icon-text">
+              <i class="fe fe-plus mr-2"></i> Create New
+            </a>
+        </div>
+    </div>
+</div>
+<!-- End Page Header -->
+
+<!-- Row -->
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card custom-card">
+            <div class="card-body">
 
                     <h4 class="card-title">Users List</h4>
                     <br>

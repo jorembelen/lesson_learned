@@ -2,13 +2,25 @@
 
 @section('content')
 
-<div class="row">
+<!-- Page Header -->
+<div class="page-header">
+    <div>
+        <h2 class="main-content-title tx-24 mg-b-5">Update {{ $user->name }}</h2>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ route('home') }}">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('users.list') }}">Users List</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Update {{ $user->name }}</li>
+        </ol>
+    </div>
 
-    <div class="col-xl-12">
-        <div class="card">
-            <div class="card-header">
-                <h4>Edit {{ $user->name }}</h4>
-            </div>
+</div>
+<!-- End Page Header -->
+
+<!-- Row -->
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card custom-card">
+
             <div class="card-body">
 
                 <form class="form-horizontal" method="POST" action="{{ route('user.update', $user) }}" id="update-user">
@@ -37,8 +49,8 @@
                     </div>
                     <div class="row mb-4">
                         <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">Role</label>
-                        <div class="col-sm-9">
-                            <select name="role" class="form-select">
+                        <div class="col-sm-5">
+                            <select name="role" class="form-control">
                                 <option value="{{ $user->role }}">{{ $user->userRole() }}</option>
                                 <option value="0">User</option>
                                 <option value="1">Admin</option>
@@ -62,26 +74,22 @@
                     @endif
 
 
-                    <div class="row justify-content-end">
-                        <div class="col-sm-9">
-
-                            <div>
-                                <a href="{{ route('users.list') }}" class="btn btn-dark waves-effect btn-label waves-light disabled-button-prevent"><i class="mdi mdi-arrow-left label-icon"></i> Cancel</a>
-                                <button  class="btn btn-primary w-md disabled-button-prevent" type="submit">Submit</button>
-                            </div>
-                            <div>
-                                <button type="button" class="btn btn-success waves-effect spinner-prevent">
-                                    <i class="bx bx-hourglass bx-spin font-size-16 align-middle me-2"></i> Saving
-                                </button>
+                    <div class="float-right">
+                        <div>
+                            <a href="{{ route('users.list') }}" class="btn btn-dark waves-effect btn-label waves-light disabled-button-prevent"><i class="mdi mdi-arrow-left label-icon"></i> Cancel</a>
+                            <button  class="btn btn-primary w-md disabled-button-prevent" type="submit">Submit</button>
+                            <div class="spinner-prevent">
+                                <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
                             </div>
                         </div>
                     </div>
-                </form>
-            </div>
-            <!-- end card body -->
+            </form>
+
         </div>
-        <!-- end card -->
+        <!-- end card body -->
     </div>
-  </div>
+    <!-- end card -->
+</div>
+</div>
 
 @endsection

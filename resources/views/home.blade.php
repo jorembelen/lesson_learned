@@ -2,27 +2,36 @@
 
 @section('content')
 
-<div class="row">
-    <div class="col-7">
-        <div class="text-primary p-3">
-            <h5 class="text-primary">Welcome Back !</h5>
-            {{-- <p>{{ auth()->user()->userGreetings() }}</p> --}}
+
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div>
+            <h2 class="main-content-title tx-24 mg-b-5">Dashboard</h2>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+            </ol>
+        </div>
 
         </div>
     </div>
-</div>
+    <!-- End Page Header -->
 
-{{-- <div class="row">
-    <div class="col-md-6">
-        <div class="card">
-            <div class="card-body">
-                <h4>Lesson Category</h4>
-                <div id="lesson-chart" class=""></div>
+    <!-- Row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card custom-card">
+                <div class="card-body text-center">
+                    <h1>{{ auth()->user()->userGreetings() }}  </h1> <br>
+                    <h1>Welcome Back!</h1>
+                </div>
             </div>
         </div>
     </div>
-    <div class="col-md-6"></div>
-</div> --}}
+    <!-- End Row -->
+
+
 @endsection
 
 {{-- @section('script')

@@ -2,96 +2,111 @@
 
 @section('content')
 
+ <!-- Page Header -->
+ <div class="page-header">
+    <div>
+        <h2 class="main-content-title tx-24 mg-b-5">Lesson Learned List</h2>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ route('home') }}">Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Lesson Learned List</li>
+        </ol>
+    </div>
+    <div class="d-flex">
+        <div class="justify-content-center">
+            <a href="{{ Route('lessons.create') }}" class="btn btn-primary my-2 btn-icon-text">
+              <i class="fe fe-plus mr-2"></i> Create New
+            </a>
+        </div>
+    </div>
+</div>
+<!-- End Page Header -->
+
+<!-- Row -->
 <div class="row">
-    <div class="col-12">
-        <div class="card">
+    <div class="col-lg-12">
+        <div class="card custom-card">
             <div class="card-body">
 
-                @if (auth()->user()->role == 0)
-                <div class="text-sm-end">
-                    <a class="btn btn-dark w-30 me-2" href="{{ route('lessons.create') }}">
-                        <i class="mdi mdi-plus me-1"></i> Create New
-                    </a>
-                </div>
-                @endif
+        <div class="table-responsive">
 
-                <h3 class="card-title">Lesson Learned List</h3>
-<br>
-                <table id="datatable" class="table table-bordered dt-responsive nowrap w-100">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                           @if (auth()->user()->role == 5)
-                           <th>Site Location</th>
-                           @endif
-                            <th>Descipline Category</th>
-                            <th>Date Raised</th>
-                            <th>Lesson Description</th>
-                            <th>Lesson Category</th>
-                            <th>Status</th>
-                            <th class="text-center">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                       @foreach ($lessons as $lesson)
-                       <tr>
-                        <td>{{ $loop->iteration }}</td>
-                        @if (auth()->user()->role == 5)
-                        <td>{{ $lesson->location->name }} - {{ $lesson->location->location }}</td>
-                        @endif
-                        <td>{{ $lesson->desc_category }}</td>
-                        <td>{{ $lesson->date_raised->format('Y-m-d') }}</td>
-                        <td>{{ $lesson->event }}</td>
-                        <td>{{ $lesson->lesson_category }}</td>
-                        <td>
-                            @if ($lesson->status == 0)
-                            <span class="badge badge-pill badge-soft-danger font-size-12">{{ $lesson->lessonStatus() }}</span>
-                            @else
-                            <span class="badge badge-pill badge-soft-success font-size-12">{{ $lesson->lessonStatus() }}</span>
+            <div class="row">
+                <div class="col-sm-12">
+                    <table class="table dataTable no-footer"  id="example1">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                               @if (auth()->user()->role == 5)
+                               <th>Site Location</th>
+                               @endif
+                                <th>Descipline Category</th>
+                                <th>Date Raised</th>
+                                <th>Lesson Description</th>
+                                <th>Lesson Category</th>
+                                <th>Status</th>
+                                <th class="text-center">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                           @foreach ($lessons as $lesson)
+                           <tr>
+                            <td>{{ $loop->iteration }}</td>
+                            @if (auth()->user()->role == 5)
+                            <td>{{ $lesson->location->name }} - {{ $lesson->location->location }}</td>
                             @endif
-                        </td>
-                        <td class="text-center">
-                                <a href="{{ route('lessons.show', $lesson->id) }}" class="text-primary"><i class="mdi mdi-eye font-size-18"></i></a>
-                                @if (auth()->user()->role != 1)
-                                    @if ($lesson->status != 2)
-                                        <a href="{{ route('lessons.edit', $lesson) }}" class="text-success"><i class="mdi mdi-pencil font-size-18"></i></a>
-                                        <a href="#" class="text-danger" data-bs-toggle="modal" data-bs-target="#delete{{ $lesson->id }}"><i class="mdi mdi-delete font-size-18"></i></a>
-                                    @endif
+                            <td>{{ $lesson->desc_category }}</td>
+                            <td>{{ $lesson->date_raised->format('Y-m-d') }}</td>
+                            <td>{{ Str::limit($lesson->event, 80, ' ...') }}</td>
+                            <td>{{ $lesson->lesson_category }}</td>
+                            <td>
+                                @if ($lesson->status == 0)
+                                <span class="status bg-danger"></span> {{ $lesson->lessonStatus() }}
+                                @else
+                                <span class="status bg-success"></span> {{ $lesson->lessonStatus() }}
                                 @endif
-                        </td>
-                    </tr>
+                            </td>
+                            <td class="text-center">
+                                    <a href="{{ route('lessons.show', $lesson->id) }}" class="text-primary"><i class="mdi mdi-eye font-size-18"></i></a>
+                                    @if (auth()->user()->role != 1)
+                                        @if ($lesson->status != 2)
+                                            <a href="{{ route('lessons.edit', $lesson) }}" class="text-success"><i class="mdi mdi-pencil font-size-18"></i></a>
+                                            <a href="#" class="text-danger" data-toggle="modal" data-target="#delete{{ $lesson->id }}"><i class="mdi mdi-delete font-size-18"></i></a>
+                                        @endif
+                                    @endif
+                            </td>
+                        </tr>
 
-                    <!-- Delete Modal -->
-                        <div class="modal fade" id="delete{{ $lesson->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="staticBackdropLabel">Delete</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
+                            <div class="modal" id="delete{{ $lesson->id }}">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content tx-size-sm">
+                                        <div class="modal-body tx-center pd-y-20 pd-x-20">
+                                            <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button> <i class="icon icon ion-ios-close-circle-outline tx-100 tx-danger lh-1 mg-t-20 d-inline-block"></i>
                                         <form class="form-horizontal" method="POST" action="{{ route('lessons.destroy', $lesson) }}">
                                             @csrf
                                             @method('DELETE')
-                                            <div class="text-center">
-                                                <h4>Are you sure? This data will be lost forever.</h4>
-                                            </div>
+                                            <h4 class="tx-danger mg-b-20">Warning!</h4>
+                                            <h4>Are you sure? This data will be lost forever.</h4>
+                                            <button  class="btn ripple btn-success pd-x-25" type="submit">Continue</button>
+                                            {{-- <button aria-label="Close" class="btn ripple btn-danger pd-x-25" data-dismiss="modal" type="button">Cancel</button> --}}
+                                        </div>
+                                    </form>
                                     </div>
-                                    <div class="modal-footer">
-                                        <button type="submit" class="btn btn-primary">Submit</button>
-                                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
-                                    </div>
-                                </form>
                                 </div>
                             </div>
-                        </div>
-                       @endforeach
-                    </tbody>
-                </table>
+
+                           @endforeach
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-    </div> <!-- end col -->
-</div> <!-- end row -->
+    </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Row -->
 
 @endsection
 
