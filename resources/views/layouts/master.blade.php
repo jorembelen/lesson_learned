@@ -174,7 +174,7 @@
         <!-- Magnific Popup-->
         <script src="/assets/plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
         <!-- lightbox init js-->
-        <script src="/assets/js/plugins/lightbox.init.js"></script>
+        <script src="/assets/plugins/lightbox.init.js"></script>
 
 		<!-- Sticky js -->
 		<script src="/assets/js/sticky.js"></script>
