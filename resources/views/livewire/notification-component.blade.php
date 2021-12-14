@@ -17,7 +17,7 @@
             @endif
             <div class="main-notification-list">
                 @foreach ($notifications as $notification)
-                <a href="{{ $notification->data['url'] }}" wire:click="read('{{ $notification->id }}')">
+                <a href="#" wire:click="read('{{ $notification->id }}')">
                 <div class="media new">
                     <div class="main-img-user online mt-2"><i class="fa fa-bell fa-2x"></i></div>
                     <div class="media-body">

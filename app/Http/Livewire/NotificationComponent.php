@@ -13,8 +13,9 @@ class NotificationComponent extends Component
         $notification = auth()->user()->notifications()->find($notificationId);
         if($notification) {
             $notification->markAsRead();
+            $this->emit('refreshNavbar');
+            return redirect($notification->data['url']);
         }
-        $this->emit('refreshNavbar');
     }
 
     public function clear()
