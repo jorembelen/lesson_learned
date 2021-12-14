@@ -25,7 +25,7 @@
         <!-- For Image upload -->
         <link href="/assets/plugins/file-upload/file-upload-with-preview.min.css" rel="stylesheet" type="text/css" />
         <!-- Lightbox css -->
-        <link href="/assets/libs/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css" />
+        <link href="/assets/plugins/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css" />
 
 		<!-- Style css-->
 		<link href="/assets/css/style/style.css" rel="stylesheet">
