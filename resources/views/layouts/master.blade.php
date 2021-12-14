@@ -7,7 +7,7 @@
 		<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
 
         <!-- Favicon -->
-		<link rel="icon" href="{{ asset('/assets/img/brand/favicon.ico') }}" type="image/x-icon"/>
+		<link rel="icon" href="/assets/img/brand/favicon.ico" type="image/x-icon"/>
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -15,12 +15,12 @@
     <title>RCL | Lesson Learned</title>
 
 		<!-- Bootstrap css-->
-		<link href="{{ asset('/assets/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet"/>
+		<link href="/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
 
 		<!-- Icons css-->
-		<link href="{{ asset('/assets/plugins/web-fonts/icons.css') }}" rel="stylesheet"/>
-		<link href="{{ asset('/assets/plugins/web-fonts/font-awesome/font-awesome.min.css') }}" rel="stylesheet">
-		<link href="{{ asset('/assets/plugins/web-fonts/plugin.css') }}" rel="stylesheet"/>
+		<link href="/assets/plugins/web-fonts/icons.css" rel="stylesheet"/>
+		<link href="/assets/plugins/web-fonts/font-awesome/font-awesome.min.css" rel="stylesheet">
+		<link href="/assets/plugins/web-fonts/plugin.css" rel="stylesheet"/>
 
         <!-- For Image upload -->
         <link href="/assets/plugins/file-upload/file-upload-with-preview.min.css" rel="stylesheet" type="text/css" />
@@ -28,32 +28,32 @@
         <link href="/assets/libs/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css" />
 
 		<!-- Style css-->
-		<link href="{{ asset('/assets/css/style/style.css') }}" rel="stylesheet">
-		<link href="{{ asset('/assets/css/skins.css') }}" rel="stylesheet">
-		<link href="{{ asset('/assets/css/dark-style.css') }}" rel="stylesheet">
-		<link href="{{ asset('/assets/css/colors/default.css') }}" rel="stylesheet">
-        <link href="{{ asset('/assets/plugins/datatable/dataTables.bootstrap4.min.css') }}" rel="stylesheet" />
-		<link href="{{ asset('/assets/css/prevent.css') }}" rel="stylesheet">
+		<link href="/assets/css/style/style.css" rel="stylesheet">
+		<link href="/assets/css/skins.css" rel="stylesheet">
+		<link href="/assets/css/dark-style.css" rel="stylesheet">
+		<link href="/assets/css/colors/default.css" rel="stylesheet">
+        <link href="/assets/plugins/datatable/dataTables.bootstrap4.min.css" rel="stylesheet" />
+		<link href="/assets/css/prevent.css" rel="stylesheet">
 
 		<!-- Color css-->
-		<link id="theme" rel="stylesheet" type="text/css" media="all" href="{{ asset('/assets/css/colors/color.css') }}">
+		<link id="theme" rel="stylesheet" type="text/css" media="all" href="/assets/css/colors/color.css">
 
 		<!-- Select2 css-->
-        <link href="{{ asset('/assets/plugins/select2/select2.min.css') }}" rel="stylesheet">
+        <link href="/assets/plugins/select2/select2.min.css" rel="stylesheet">
 
 
              	<!-- InternalFileupload css-->
-		<link href="{{ asset('/assets/plugins/fileuploads/css/fileupload.css') }}" rel="stylesheet" type="text/css"/>
+		<link href="/assets/plugins/fileuploads/css/fileupload.css" rel="stylesheet" type="text/css"/>
 
 		<!-- InternalFancy uploader css-->
-		<link href="{{ asset('/assets/plugins/fancyuploder/fancy_fileupload.css') }}" rel="stylesheet" />
+		<link href="/assets/plugins/fancyuploder/fancy_fileupload.css" rel="stylesheet" />
 
 		<!-- Sidemenu css-->
-		<link href="{{ asset('/assets/css/sidemenu/sidemenu.css') }}" rel="stylesheet">
+		<link href="/assets/css/sidemenu/sidemenu.css" rel="stylesheet">
 
 		<!-- Switcher css-->
-		<link href="{{ asset('/assets/switcher/css/switcher.css') }}" rel="stylesheet">
-		<link href="{{ asset('/assets/switcher/demo.css') }}" rel="stylesheet">
+		<link href="/assets/switcher/css/switcher.css" rel="stylesheet">
+		<link href="/assets/switcher/demo.css" rel="stylesheet">
 
         <style>
             pre {
@@ -81,7 +81,7 @@
 
 		<!-- Loader -->
 		<div id="global-loader">
-			<img src="{{ asset('/assets/img/loader.svg') }}" class="loader-img" alt="Loader">
+			<img src="/assets/img/loader.svg" class="loader-img" alt="Loader">
 		</div>
         <!-- End Loader -->
 
@@ -135,41 +135,41 @@
 
 
 		<!-- Jquery js-->
-		<script src="{{ asset('/assets/plugins/jquery/jquery.min.js') }}"></script>
+		<script src="/assets/plugins/jquery/jquery.min.js"></script>
 
 		<!-- Bootstrap js-->
-		<script src="{{ asset('/assets/plugins/bootstrap/js/popper.min.js') }}"></script>
-        <script src="{{ asset('/assets/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
+		<script src="/assets/plugins/bootstrap/js/popper.min.js"></script>
+        <script src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 
 		<!-- Select2 js-->
-		<script src="{{ asset('/assets/plugins/select2/select2.min.js') }}"></script>
+		<script src="/assets/plugins/select2/select2.min.js"></script>
 
 		<!-- Perfect-scrollbar js -->
-		<script src="{{ asset('/assets/plugins/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
+		<script src="/assets/plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
 
 		<!-- Sidemenu js -->
-		<script src="{{ asset('/assets/plugins/sidemenu/sidemenu.js') }}"></script>
+		<script src="/assets/plugins/sidemenu/sidemenu.js"></script>
 
 		<!-- Sidebar js -->
-		<script src="{{ asset('/assets/plugins/sidebar/sidebar.js') }}"></script>
+		<script src="/assets/plugins/sidebar/sidebar.js"></script>
 
         	<!-- Internal Fileuploads js-->
-		<script src="{{ asset('/assets/plugins/fileuploads/js/fileupload.js') }}"></script>
-        <script src="{{ asset('/assets/plugins/fileuploads/js/file-upload.js') }}"></script>
+		<script src="/assets/plugins/fileuploads/js/fileupload.js"></script>
+        <script src="/assets/plugins/fileuploads/js/file-upload.js"></script>
 
 		<!-- Internal Data Table js -->
-        <script src="{{ asset('/assets/plugins/datatable/jquery.dataTables.min.js') }}"></script>
-        <script src="{{ asset('/assets/plugins/datatable/dataTables.bootstrap4.min.js') }}"></script>
-        <script src="{{ asset('/assets/plugins/datatable/dataTables.responsive.min.js') }}"></script>
-        <script src="{{ asset('/assets/plugins/datatable/fileexport/dataTables.buttons.min.js') }}"></script>
-        <script src="{{ asset('/assets/plugins/datatable/fileexport/buttons.bootstrap4.min.js') }}"></script>
-        <script src="{{ asset('/assets/plugins/datatable/fileexport/jszip.min.js') }}"></script>
-        <script src="{{ asset('/assets/plugins/datatable/fileexport/pdfmake.min.js') }}"></script>
-        <script src="{{ asset('/assets/plugins/datatable/fileexport/vfs_fonts.js') }}"></script>
-        <script src="{{ asset('/assets/plugins/datatable/fileexport/buttons.html5.min.js') }}"></script>
-        <script src="{{ asset('/assets/plugins/datatable/fileexport/buttons.print.min.js') }}"></script>
-        <script src="{{ asset('/assets/plugins/datatable/fileexport/buttons.colVis.min.js') }}"></script>
-        <script src="{{ asset('/assets/js/table-data.js') }}"></script>
+        <script src="/assets/plugins/datatable/jquery.dataTables.min.js"></script>
+        <script src="/assets/plugins/datatable/dataTables.bootstrap4.min.js"></script>
+        <script src="/assets/plugins/datatable/dataTables.responsive.min.js"></script>
+        <script src="/assets/plugins/datatable/fileexport/dataTables.buttons.min.js"></script>
+        <script src="/assets/plugins/datatable/fileexport/buttons.bootstrap4.min.js"></script>
+        <script src="/assets/plugins/datatable/fileexport/jszip.min.js"></script>
+        <script src="/assets/plugins/datatable/fileexport/pdfmake.min.js"></script>
+        <script src="/assets/plugins/datatable/fileexport/vfs_fonts.js"></script>
+        <script src="/assets/plugins/datatable/fileexport/buttons.html5.min.js"></script>
+        <script src="/assets/plugins/datatable/fileexport/buttons.print.min.js"></script>
+        <script src="/assets/plugins/datatable/fileexport/buttons.colVis.min.js"></script>
+        <script src="/assets/js/table-data.js"></script>
 
         <!-- Magnific Popup-->
         <script src="/assets/libs/magnific-popup/jquery.magnific-popup.min.js"></script>
@@ -177,21 +177,21 @@
         <script src="/assets/js/pages/lightbox.init.js"></script>
 
 		<!-- Sticky js -->
-		<script src="{{ asset('/assets/js/sticky.js') }}"></script>
+		<script src="/assets/js/sticky.js"></script>
 
 		<!-- Custom js -->
-		<script src="{{ asset('/assets/js/custom.js') }}"></script>
-		<script src="{{ asset('/assets/js/prevent.js') }}"></script>
+		<script src="/assets/js/custom.js"></script>
+		<script src="/assets/js/prevent.js"></script>
 
 		<!-- Switcher js -->
-		<script src="{{ asset('/assets/switcher/js/switcher.js') }}"></script>
+		<script src="/assets/switcher/js/switcher.js"></script>
 
-        <script src="{{ asset('/assets/plugins/counters/jquery.missofis-countdown.js') }}"></script>
-        <script src="{{ asset('/assets/plugins/counters/counterup.min.js') }}"></script>
-        <script src="{{ asset('/assets/plugins/counters/waypoints.min.js') }}"></script>
-        <script src="{{ asset('/assets/plugins/counters/counter.js') }}"></script>
+        <script src="/assets/plugins/counters/jquery.missofis-countdown.js"></script>
+        <script src="/assets/plugins/counters/counterup.min.js"></script>
+        <script src="/assets/plugins/counters/waypoints.min.js"></script>
+        <script src="/assets/plugins/counters/counter.js"></script>
 
-        <script type="text/javascript" src="{{ asset('/vendor/jsvalidation/js/jsvalidation.js')}}"></script>
+        <script type="text/javascript" src="/vendor/jsvalidation/js/jsvalidation.js"></script>
         {!! JsValidator::formRequest('App\Http\Requests\LessonStoreRequest', '#lesson-create'); !!}
         {!! JsValidator::formRequest('App\Http\Requests\UserStoreRequest', '#create-user'); !!}
         {!! JsValidator::formRequest('App\Http\Requests\UserUpdateRequest', '#update-user'); !!}
