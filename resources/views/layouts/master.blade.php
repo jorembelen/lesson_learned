@@ -172,9 +172,9 @@
         <script src="/assets/js/table-data.js"></script>
 
         <!-- Magnific Popup-->
-        <script src="/assets/libs/magnific-popup/jquery.magnific-popup.min.js"></script>
+        <script src="/assets/plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
         <!-- lightbox init js-->
-        <script src="/assets/js/pages/lightbox.init.js"></script>
+        <script src="/assets/js/plugins/lightbox.init.js"></script>
 
 		<!-- Sticky js -->
 		<script src="/assets/js/sticky.js"></script>
