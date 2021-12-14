@@ -27,6 +27,10 @@
         <!-- Lightbox css -->
         <link href="/assets/plugins/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css" />
 
+        <link href="/assets/plugins/lightbox/photoswipe.css" rel="stylesheet" type="text/css" />
+        <link href="/assets/plugins/lightbox/default-skin/default-skin.css" rel="stylesheet" type="text/css" />
+        <link href="/assets/plugins/lightbox/custom-photswipe.css" rel="stylesheet" type="text/css" />
+
 		<!-- Style css-->
 		<link href="/assets/css/style/style.css" rel="stylesheet">
 		<link href="/assets/css/skins.css" rel="stylesheet">
@@ -174,7 +178,9 @@
         <!-- Magnific Popup-->
         <script src="/assets/plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
         <!-- lightbox init js-->
-        <script src="/assets/plugins/lightbox.init.js"></script>
+        <script src="/assets/plugins/lightbox/photoswipe.min.js"></script>
+        <script src="/assets/plugins/lightbox/photoswipe-ui-default.min.js"></script>
+        <script src="/assets/plugins/lightbox/custom-photswipe.js"></script>
 
 		<!-- Sticky js -->
 		<script src="/assets/js/sticky.js"></script>
