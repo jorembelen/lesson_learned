@@ -30,11 +30,12 @@
                 <div class="dropdown main-profile-menu">
                     <a class="d-flex" href="#">
                         <span class="main-img-user" >
-                                <img class="round" width="60" height="60" avatar="{{ auth()->user()->name }}">
+                            <img class="round" width="60" height="60" avatar="{{ auth()->user()->name }}">
                         </span>
                     </a>
                     <div class="dropdown-menu">
                         <div class="header-navheading">
+                            <h6 class="main-notification-title">{{ auth()->user()->userRole() }}</h6>
                         </div>
                         <a class="dropdown-item border-top" href="#">
                             <i class="fe fe-user"></i> {{ auth()->user()->userGreetings() }}
