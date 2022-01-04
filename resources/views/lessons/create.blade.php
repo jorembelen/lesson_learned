@@ -153,7 +153,7 @@
                                     <div class="form-group custom-file-container" data-upload-id="myImage">
                                         <label><a href="#" class="custom-file-container__image-clear" title="Clear Image"></a></label>
                                         <label class="custom-file-container__custom-file" >
-                                            <input type="file" class=" form-control" name="images[]"  multiple>
+                                            <input type="file" class="form-control" name="images[]"  multiple>
                                             <span class="custom-file-container__custom-file__custom-file-control"></span>
                                         </label>
                                         <div class="custom-file-container__image-preview"></div>

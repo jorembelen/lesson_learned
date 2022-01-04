@@ -24,6 +24,8 @@ class LessonStoreRequest extends FormRequest
     public function rules()
     {
         return [
+            'user_id' => 'required',
+            'project_location_id' => 'required',
             'desc_category' => 'required',
             'date_raised' => 'required',
             'event' => 'required',
@@ -31,10 +33,11 @@ class LessonStoreRequest extends FormRequest
             'warning_signs' => 'required',
             'recommendations' => 'required',
             'action' => 'required',
+            'wbs_id' => 'nullable',
+            'risk_level' => 'required_if:lesson_category,Negative',
             'owner' => 'required',
-            'images' => 'image',
-            'attachment' => 'mimes:zip,doc,docx,xlsx,xls,pdf|max:2048M',
-            'risk_level' => 'required_if:lesson_category, "Negative"',
+            'images.*' => 'image|nullable',
+            'attachment' => 'nullable|mimes:zip,doc,docx,xlsx,xls,pdf',
         ];
     }
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LessonStoreRequest;
 use App\Models\Lesson;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -56,7 +57,7 @@ class LessonLearnController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(LessonStoreRequest $request)
     {
 
         $lesson = new Lesson();
