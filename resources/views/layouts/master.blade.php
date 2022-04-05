@@ -33,7 +33,6 @@
 		<link href="/assets/css/dark-style.css" rel="stylesheet">
 		<link href="/assets/css/colors/default.css" rel="stylesheet">
         <link href="/assets/plugins/datatable/dataTables.bootstrap4.min.css" rel="stylesheet" />
-		<link href="/assets/css/prevent.css" rel="stylesheet">
 
 		<!-- Color css-->
 		<link id="theme" rel="stylesheet" type="text/css" media="all" href="/assets/css/colors/color.css">
@@ -181,7 +180,6 @@
 
 		<!-- Custom js -->
 		<script src="/assets/js/custom.js"></script>
-		<script src="/assets/js/prevent.js"></script>
 
 		<!-- Switcher js -->
 		<script src="/assets/switcher/js/switcher.js"></script>

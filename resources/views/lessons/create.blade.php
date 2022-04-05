@@ -2,6 +2,12 @@
 
 @section('content')
 
+<style>
+    .disabled-btn {
+        display: none;
+    }
+</style>
+
 <!-- Page Header -->
 <div class="page-header">
     <div>
@@ -170,9 +176,9 @@
 
                             <div class="float-right">
                                     <div>
-                                        <a href="{{ route('lessons.index') }}" class="btn btn-dark waves-effect btn-label waves-light disabled-button-prevent"><i class="mdi mdi-arrow-left label-icon"></i> Cancel</a>
-                                        <button  class="btn btn-primary w-md disabled-button-prevent" type="submit">Submit</button>
-                                        <div class="spinner-prevent">
+                                        <button  class="btn btn-primary w-md enabled-btn" type="submit">Submit</button>
+                                        <a href="{{ route('lessons.index') }}" class="btn btn-dark waves-effect btn-label waves-light enabled-btn"><i class="mdi mdi-arrow-left label-icon"></i> Cancel</a>
+                                        <div class="spinner-prevent disabled-btn">
                                             <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
                                         </div>
                                     </div>
@@ -196,5 +202,17 @@
         var secondUpload = new FileUploadWithPreview('myImage')
     </script>
 
+<script>
+    (function(){
+        $('.form-disabled-button').on('submit', function() {
+            $('.enabled-btn').hide();
+            $('.disabled-btn').show();
+            setTimeout(function() {
+                $('.enabled-btn').show();
+                $('.disabled-btn').hide();
+            }, 10000);
+        })
+    })();
+</script>
 @endsection
 

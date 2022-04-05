@@ -3,6 +3,7 @@
 namespace App\Observers;
 
 use App\Models\Lesson;
+use App\Models\ProjectLocation;
 use App\Models\User;
 use Illuminate\Support\Facades\Notification;
 use App\Notifications\LessonLearnNotification;
@@ -20,10 +21,14 @@ class LessonLearnedObserver
         $email = User::whereproject_location_id($lesson->project_location_id)->whererole(1)->get();
         $admin = User::whererole(5)->get();
         $url = route('lessons.show', $lesson->id);
+        $user = User::find($lesson->user_id);
+        $location = ProjectLocation::find($user->project_location_id);
         $details = [
-            'title' => 'New Lesson Learned Submitted',
+            'greetings' => 'Greetings',
+            'title' => 'New Lesson Learned Submitted by ' .$user->name .' of ' .$location->name,
             'url' => $url,
             'data' => 'Click here to view information.',
+            'actionText' => 'Click here to view information.',
             ];
         Notification::send($email, new LessonLearnNotification($details));
         Notification::send($admin, new LessonLearnNotification($details));

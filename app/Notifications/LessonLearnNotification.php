@@ -31,7 +31,7 @@ class LessonLearnNotification extends Notification
      */
     public function via($notifiable)
     {
-        return ['database'];
+        return ['database', 'mail'];
     }
 
     /**
@@ -43,9 +43,9 @@ class LessonLearnNotification extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+                ->greeting($this->details['greetings'])
+                ->line($this->details['title'])
+                ->action($this->details['actionText'], $this->details['url']);
     }
 
     /**
