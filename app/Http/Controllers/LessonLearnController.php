@@ -135,25 +135,38 @@ class LessonLearnController extends Controller
             Alert::error('Failed', 'Your are not allowed to approve this data!');
             return redirect()->back();
            }
+
+        DB::beginTransaction();
+        if($lesson) {
         $lesson->update([
             'status' => $request->status,
             'comments' => $request->comments,
         ]);
+
+        $status = $request->status == 1 ? 'Revision Required' : 'Approved';
 
         $email = User::find($lesson->user_id);
         $admin = User::whererole(5)->get();
         $url = route('lessons.show', $lesson->id);
         $details = [
             'greetings' => 'Greetings',
-            'title' => 'Lesson Learned Status Updated',
+            'title' => 'Lesson Learned Status was changed to ' .$status .'.',
             'url' => $url,
+            'description' => 'Lesson Description: ' .$lesson->event,
             'data' => 'Click here to view information.',
             'actionText' => 'Click here to view information.',
             ];
         Notification::send($email, new LessonLearnNotification($details));
         Notification::send($admin, new LessonLearnNotification($details));
 
+        // DB::commit();
         Alert::success('Success', 'Status was successfully updated!');
+
+        }else{
+            DB::rollBack();
+            Alert::error('Failed', 'Please check your data and try again!');
+            return redirect()->back();
+        }
 
         return redirect()->route('lessons.index');
     }

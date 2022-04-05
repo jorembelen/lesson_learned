@@ -26,6 +26,7 @@ class LessonLearnedObserver
         $details = [
             'greetings' => 'Greetings',
             'title' => 'New Lesson Learned Submitted by ' .$user->name .' of ' .$location->name,
+            'description' => 'Lesson Description: ' .$lesson->event,
             'url' => $url,
             'data' => 'Click here to view information.',
             'actionText' => 'Click here to view information.',

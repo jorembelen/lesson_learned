@@ -45,6 +45,7 @@ class LessonLearnNotification extends Notification
         return (new MailMessage)
                 ->greeting($this->details['greetings'])
                 ->line($this->details['title'])
+                ->line($this->details['description'])
                 ->action($this->details['actionText'], $this->details['url']);
     }
 
