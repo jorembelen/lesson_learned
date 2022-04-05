@@ -144,9 +144,11 @@ class LessonLearnController extends Controller
         $admin = User::whererole(5)->get();
         $url = route('lessons.show', $lesson->id);
         $details = [
+            'greetings' => 'Greetings',
             'title' => 'Lesson Learned Status Updated',
             'url' => $url,
             'data' => 'Click here to view information.',
+            'actionText' => 'Click here to view information.',
             ];
         Notification::send($email, new LessonLearnNotification($details));
         Notification::send($admin, new LessonLearnNotification($details));
