@@ -2,6 +2,12 @@
 
 @section('content')
 
+<style>
+    .disabled-btn {
+        display: none;
+    }
+</style>
+
  <!-- Page Header -->
  <div class="page-header">
     <div>
@@ -130,7 +136,7 @@
                 <h6 class="modal-title">Approval Status</h6><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
-                <form class="form-horizontal" method="POST" action="{{ route('lesson.approve', $lesson) }}">
+                <form class="form-horizontal form-disabled-button" method="POST" action="{{ route('lesson.approve', $lesson) }}">
                     @csrf
                     @method('PUT')
                     <div class="row mb-4">
@@ -153,8 +159,11 @@
                     </div>
             </div>
             <div class="modal-footer">
-                <button class="btn ripple btn-primary" type="submit">Submit</button>
-                <button class="btn ripple btn-secondary" data-dismiss="modal" type="button">Cancel</button>
+                <button class="btn ripple btn-primary enabled-btn" type="submit">Submit</button>
+                <button class="btn ripple btn-secondary enabled-btn" data-dismiss="modal" type="button">Cancel</button>
+                <div class="spinner-prevent disabled-btn">
+                    <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+                </div>
             </div>
         </div>
     </div>
@@ -163,3 +172,18 @@
 @endsection
 
 
+@push('create-js')
+
+<script>
+(function(){
+    $('.form-disabled-button').on('submit', function() {
+        $('.enabled-btn').hide();
+        $('.disabled-btn').show();
+        setTimeout(function() {
+            $('.enabled-btn').show();
+            $('.disabled-btn').hide();
+        }, 10000);
+    })
+})();
+</script>
+@endpush

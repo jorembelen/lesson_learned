@@ -196,23 +196,27 @@
 <!-- End Row -->
 
 
-    <script src="/assets/plugins/file-upload/file-upload-with-preview.min.js"></script>
 
-    <script>
-        var secondUpload = new FileUploadWithPreview('myImage')
-    </script>
-
-<script>
-    (function(){
-        $('.form-disabled-button').on('submit', function() {
-            $('.enabled-btn').hide();
-            $('.disabled-btn').show();
-            setTimeout(function() {
-                $('.enabled-btn').show();
-                $('.disabled-btn').hide();
-            }, 10000);
-        })
-    })();
-</script>
 @endsection
 
+
+@push('create-js')
+<script src="/assets/plugins/file-upload/file-upload-with-preview.min.js"></script>
+
+<script>
+    var secondUpload = new FileUploadWithPreview('myImage')
+</script>
+
+<script>
+(function(){
+    $('.form-disabled-button').on('submit', function() {
+        $('.enabled-btn').hide();
+        $('.disabled-btn').show();
+        setTimeout(function() {
+            $('.enabled-btn').show();
+            $('.disabled-btn').hide();
+        }, 10000);
+    })
+})();
+</script>
+@endpush

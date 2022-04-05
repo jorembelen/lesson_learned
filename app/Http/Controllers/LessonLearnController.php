@@ -159,7 +159,7 @@ class LessonLearnController extends Controller
         Notification::send($email, new LessonLearnNotification($details));
         Notification::send($admin, new LessonLearnNotification($details));
 
-        DB::commit();
+        // DB::commit();
         Alert::success('Success', 'Status was successfully updated!');
 
         }else{

@@ -210,6 +210,8 @@
         });
         </script>
 
+    @stack('create-js')
+
         @livewireScripts
 	</body>
 
