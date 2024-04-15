@@ -31,8 +31,8 @@ class LessonLearnedObserver
             'data' => 'Click here to view information.',
             'actionText' => 'Click here to view information.',
             ];
-        Notification::send($email, new LessonLearnNotification($details));
-        Notification::send($admin, new LessonLearnNotification($details));
+        // Notification::send($email, new LessonLearnNotification($details));
+        // Notification::send($admin, new LessonLearnNotification($details));
     }
 
     /**

@@ -63,9 +63,9 @@
                                     <form class="text-left" method="POST" action="{{ route('login') }}" aria-label="{{ __('Login') }}" id="login">
                                         @csrf
                                         <div class="mb-3">
-                                            <label for="email" class="form-label">Email</label>
-                                            <input type="email" class="form-control" name="email" placeholder="Enter email" value="{{ old('email') }}">
-                                            @error('email') <span class="text-danger">{{ $message }}</span> @enderror
+                                            <label for="username" class="form-label">Username</label>
+                                            <input type="text" class="form-control" name="username" placeholder="enter username" value="{{ old('username') }}">
+                                            @error('username') <span class="text-danger">{{ $message }}</span> @enderror
                                         </div>
 
                                         <div class="mb-3">

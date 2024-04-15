@@ -18,19 +18,22 @@ class DatabaseSeeder extends Seeder
 
         User::create([
             'name' => 'Site Admin',
+            'username' => 'site.admin',
             'role' => 5,
             'email' => 'admin@gmail.com',
         ]);
 
         User::create([
-            'name' => 'John Doe',
+            'name' => 'Site User',
+            'username' => 'site.user',
             'role' => 0,
             'email' => 'john@doe.com',
             'project_location_id' => 37,
         ]);
 
         User::create([
-            'name' => 'Peter Doe',
+            'name' => 'Site Manager',
+            'username' => 'site.manager',
             'role' => 1,
             'email' => 'peter@doe.com',
             'project_location_id' => 37,
